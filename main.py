@@ -45,20 +45,20 @@ def is_bad_link(url):
 # First get a random Wikipedia page
 base_url = 'http://en.wikipedia.org'
 current_page = '/wiki/Special:Random'
-target_page = '/wiki/Psychology'
+target_page = '/wiki/Philosophy'
 
 run = True
 while(run):
     new_data = get_first_link(base_url + current_page)
 
     if not new_data:
-        print('No link found in page, aborting!')
+        print('No new link found in page, aborting!')
         exit()
 
     current_page = new_data['url']
 
     if current_page == target_page:
-        print('Reached Psychology!')
+        print('Reached Philosophy! - {0}'.format(current_page))
         run = False
 
     visited_urls.append(current_page)
